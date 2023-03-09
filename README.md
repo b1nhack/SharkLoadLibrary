@@ -16,7 +16,7 @@ PDARKMODULE DarkModule = DarkLoadLibrary(
 	"http://xxxx/demo.dll", // remote dll url, if loading from remote
 	NULL, // dll buffer to load from if loading from memory
 	0, // dll size if loading from memory
-	L"Demo" // dll name if loaded from memory and remote
+	"Demo" // dll name if loaded from memory and remote
 );
 ```
 
@@ -34,8 +34,6 @@ PDARKMODULE DarkModule = DarkLoadLibrary(
 
   and set vcpkg->Use Static Libraries `YES`
 
-Build it :)
-
 ### Test
 
 I made a test dll named demo.dll.
@@ -45,11 +43,16 @@ It has a export function named Demo and just pop a dialog.
 use `Python3` start a server: 
 
 ```shell
-python -m http.server
+python -m http.server 8000
 ```
 
 url maybe like `http://127.0.0.1:8000/demo.dll`
 
 use url replace `http://xxxx/demo.dll`
 
-Build && Run
+Run: 
+
+```shell
+rundll32.exe SharkLoadLibrary.dll,calc
+```
+

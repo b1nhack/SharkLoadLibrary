@@ -1,7 +1,7 @@
 #include <windows.h>
 
 #include "pebutils.h"
-#include "darkloadlibrary.h"
+#include "sharkloadlibrary.h"
 
 #define RVA(type, base_addr, rva) (type)((ULONG_PTR) base_addr + rva)
 

@@ -2,7 +2,7 @@
 #include <malloc.h>
 
 #include "pebstructs.h"
-#include "darkloadlibrary.h"
+#include "sharkloadlibrary.h"
 
 #define FILL_STRING(string, buffer) \
     string.Length = (USHORT)strlen(buffer); \

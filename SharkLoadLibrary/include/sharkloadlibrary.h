@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <windows.h>
 #include "utils.h"
 
@@ -34,10 +33,10 @@ typedef struct _DARKMODULE {
 
 PDARKMODULE DarkLoadLibrary(
 	DWORD   dwFlags,
-	LPCWSTR lpwBuffer,
+	LPCSTR lpwBuffer,
 	LPVOID	lpFileBuffer,
 	DWORD   dwLen,
-	LPCWSTR lpwName
+	LPCSTR lpwName
 );
 
 SIZE_T WideStringLength(LPWSTR str);

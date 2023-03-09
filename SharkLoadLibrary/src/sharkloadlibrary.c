@@ -164,10 +164,10 @@ BOOL ReadFileToBuffer(
 
 PDARKMODULE DarkLoadLibrary(
 	DWORD   dwFlags,
-	LPCWSTR lpwBuffer,
+	LPCSTR lpwBuffer,
 	LPVOID	lpFileBuffer,
 	DWORD   dwLen,
-	LPCWSTR lpwName
+	LPCSTR lpwName
 )
 {
 	HEAPALLOC pHeapAlloc = (HEAPALLOC)GetFunctionAddress(IsModulePresent(L"Kernel32.dll"), "HeapAlloc");
