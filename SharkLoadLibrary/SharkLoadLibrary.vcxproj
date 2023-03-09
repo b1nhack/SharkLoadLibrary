@@ -152,19 +152,19 @@
     <None Include="src\syscallsstubs.asm" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\darkloadlibrary.h" />
     <ClInclude Include="include\framework.h" />
     <ClInclude Include="include\ldrutils.h" />
     <ClInclude Include="include\pebstructs.h" />
     <ClInclude Include="include\pebutils.h" />
+    <ClInclude Include="include\sharkloadlibrary.h" />
     <ClInclude Include="include\syscalls.h" />
     <ClInclude Include="include\utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\darkloadlibrary.c" />
     <ClCompile Include="src\dllmain.c" />
     <ClCompile Include="src\ldrutils.c" />
     <ClCompile Include="src\pebutils.c" />
+    <ClCompile Include="src\sharkloadlibrary.c" />
     <ClCompile Include="src\syscalls.c" />
     <ClCompile Include="src\utils.c" />
   </ItemGroup>
